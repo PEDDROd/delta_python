@@ -1,4 +1,18 @@
 import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+def ler_numero(nome):
+    while True:
+        entrada = input(f{nome}:)
+        if entrada.strip() == "":
+                print("erro, digite numero")
+                continue
+        try:
+            valor = float(input(f"{nome}:"))
+            return valor
+        except ValueError:
+            print("erro,valor invalido")
 
 
 def calcular_delta ():
@@ -21,8 +35,14 @@ def calcular_delta ():
         print(f"raizes {x1} e {x2}")
         
     X = np.linspace(-10, 10, 400)
-    y = a*x**2 + b*x + c
+    y = a*X**2 + b*X + c
     
+    plt.plot(X, y, label="função")
+    plt.axhline(0, color="black" )
+    plt.axvline(0, color="black")
+    plt.legend()
+    plt.title("Grafico da função")
+    plt.show()
  
     
 
